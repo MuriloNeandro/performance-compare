@@ -1,25 +1,34 @@
 import { Component, OnInit } from '@angular/core';
-
-import { RendererService } from '../renderer.service';
 import { RendererModel } from '../../../shared/models/renderer.model';
+import { RendererService } from '../renderer.service';
 
 @Component({
-  selector: 'app-renderer-error',
-  templateUrl: './renderer-error.component.html',
-  styleUrls: ['./renderer-error.component.scss']
+  selector: 'app-list-trackby',
+  templateUrl: './list-trackby.component.html',
+  styleUrls: ['./list-trackby.component.scss']
 })
-export class RendererErrorComponent implements OnInit {
+export class ListTrackbyComponent implements OnInit {
 
-  visible: boolean = true;
   dados: RendererModel[] = [];
 
   constructor(private _rendererService: RendererService) { }
 
   ngOnInit() {
+    this.carregar();
+  }
+
+  trackByFn(index, item) {
+    return index;
+  }
+
+  remover(i: number) {
+    this.dados.splice(i, 1);
+  }
+
+  carregar() {
     this._rendererService.getDados()
       .toPromise()
       .then(res => this.dados = res)
       .catch(error => console.error(error));
   }
-
 }

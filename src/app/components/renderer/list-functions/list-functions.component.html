@@ -1,0 +1,19 @@
+
+<select [(ngModel)]="codigoSelecionado">
+  <option *ngFor="let v of dados" [value]="v.codigo">{{v.nomeCliente}}</option>
+</select>
+
+<table *ngFor="let cliente of dados" [hidden]="cliente.codigo != codigoSelecionado">
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Valor</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of cliente.dados;let i = index">
+      <td>{{row.descricao}}</td>
+      <td><input [(ngModel)]="row.valor"></td>
+    </tr>
+  </tbody>
+</table>

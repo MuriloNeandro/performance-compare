@@ -1,22 +1,6 @@
-<h1> Renderer error list example</h1>
+<h1> Facilitando o serviço do DOM </h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Código</th>
-      <th>Nome</th>
-      <th>Data</th>
-      <th>SubTotal</th>
-      <th>Total</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let row of dados">
-      <td>{{row.codigo}}</td>
-      <td>{{row.nomeCliente}}</td>
-      <td>{{row.dataVenda}}</td>
-      <td>{{row.valorSubTotal}}</td>
-      <td>{{row.valorTotal}}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="visible">NgIf</div>
+<div [hidden]="!visible">Hidden</div>
+
+<button class="btn btn-primary" (click)="visible = !visible">{{visible ? 'Esconder' : 'Mostrar'}}</button>

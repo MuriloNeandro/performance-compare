@@ -1,14 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
-import { RendererService } from '../renderer.service';
-import { RendererModel } from '../../../shared/models/renderer.model';
+import { RendererService } from './renderer.service';
+import { RendererModel } from '../../shared/models/renderer.model';
 
 @Component({
-  selector: 'app-renderer-error',
-  templateUrl: './renderer-error.component.html',
-  styleUrls: ['./renderer-error.component.scss']
+  selector: 'app-renderer',
+  templateUrl: './renderer.component.html',
+  styleUrls: ['./renderer.component.scss']
 })
-export class RendererErrorComponent implements OnInit {
+export class RendererComponent implements OnInit {
 
   visible: boolean = true;
   dados: RendererModel[] = [];

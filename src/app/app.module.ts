@@ -1,20 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { ObservableErrorComponent } from './components/observables/observable-error/observable-error.component';
-import { RendererErrorComponent } from './components/renderer/renderer-error/renderer-error.component';
+import { AppRoutingModule } from './app.routing';
+import { RealTimeService } from './shared/services/real-time.service';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    ObservableErrorComponent,
-    RendererErrorComponent
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [RealTimeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
