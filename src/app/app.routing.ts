@@ -4,6 +4,15 @@ import { AppComponent } from './app.component';
 
 export const routes: Routes = [
     {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        loadChildren: './components/home/home.module#HomeModule'
+    },
+    {
         path: 'renderer',
         loadChildren: './components/renderer/renderer.module#RendererModule'
     },
